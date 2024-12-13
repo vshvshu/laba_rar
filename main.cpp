@@ -50,15 +50,14 @@ int main()
         file.read(array.data(), sizeFile);
 
         int index = 20;
-        }
+
         while(true)
             {
 
             head* p_header = reinterpret_cast<head*> (&array[index]);
             index += 7;
 
-            if(int(p_header->header_type) != 116)
-            {
+            if(int(p_header->header_type) != 116){
                 break;
             }
             else
