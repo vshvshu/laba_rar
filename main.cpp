@@ -57,7 +57,25 @@ int main()
             head* p_header = reinterpret_cast<head*> (&array[index]);
             index += 7;
 
-            if(int(p_header->header_type) != 116){
+            if(int(p_header->header_type) != 116)
+            {
                 break;
             }
+            else
+                {
+                file_head* d_header = reinterpret_cast<file_head*> (&array[index]);
+                index += 25;
+
+                for(int i = index; i < index + int(d_header->name_size);i++){
+                    cout << array[i];
+                }
+                index -= 25;
+                cout << endl;
+                index -= 7;
+                index += int(d_header->pack_size);
+                index +=  p_header->header_size;
+            }
+        }
+    }
+    return 0;
 }
