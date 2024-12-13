@@ -34,3 +34,21 @@ struct main_head
 };
 
 #pragma pack(pop)
+
+int main()
+{
+    ifstream file("C:\\study\\labRar\\Example.rar", ios::binary);
+    if(file.is_open())
+        {
+
+        file.seekg(0, ios::end);
+        int sizeFile = file.tellg();
+        file.seekg(0, ios::beg);
+
+        vector<char> array(sizeFile, 0);
+
+        file.read(array.data(), sizeFile);
+
+        int index = 20;
+        }
+}
